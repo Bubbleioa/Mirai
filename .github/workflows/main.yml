@@ -71,4 +71,5 @@ jobs:
           cd .deploy_git
           git add -A
           git commit -m 'Github Action'
+          git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
           git push https://action:${{secrets.DEPLOY_KEY}}@github.com/Bubbleioa/Mirai-built.git main:main
