@@ -40,12 +40,7 @@ jobs:
         with:
           repository: ${{ env.SRC_REPO }}
           ref: ${{ env.SRC_BRANCH }}
-          
-      - name: Checkout deploy repo
-        uses: actions/checkout@v2
-        with:
-          repository: ${{ env.DEPLOY_REPO }}
-          ref: ${{ env.DEPLOY_BRANCH }}
+
           
       - name: Use Node.js ${{ matrix.node_version }}
         uses: actions/setup-node@v2
