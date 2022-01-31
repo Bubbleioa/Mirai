@@ -71,4 +71,4 @@ jobs:
           cd .deploy_git
           git add -A
           git commit -m 'Github Action'
-          git push https://action:${{ secrets.DEPLOY_KEY }}@github.com/Bubbleioa/Mirai-built.git
+          git push https://action:${{secrets.DEPLOY_KEY}}@github.com/Bubbleioa/Mirai-built.git
