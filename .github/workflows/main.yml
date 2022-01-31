@@ -73,7 +73,9 @@ jobs:
         run: |
           npm run build
       
-      - name: test
+      - name: deploy
         run: |
-          ls
-          ls .deploy_git
+          cp -R ./public/* .deploy_git/
+          cd .deploy_git
+          git commit -am $(date)
+          git push
