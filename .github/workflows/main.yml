@@ -65,16 +65,10 @@ jobs:
         env:
           DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
         run: |
-          mkdir -p ~/.ssh/
-          echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          eval `ssh-agent -s`
-          ssh-add ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.name $GIT_USER
           git config --global user.email $GIT_EMAIL
           cp -R ./public/* .deploy_git/
           cd .deploy_git
           git add -A
           git commit -m 'Github Action'
-          git push
+          git push https://action:${{ secrets.DEPLOY_KEY }}@github.com/Bubbleioa/Mirai-built.git
