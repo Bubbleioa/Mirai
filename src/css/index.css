@@ -1,0 +1,12 @@
+.header h1 {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 10vw;
+}
+
+.header {
+  line-height: 55vw;
+  height: 55vw;
+  text-align: center;
+}
