@@ -7,13 +7,17 @@ interface Props {
 
 interface State {
   headerList: string[],
-  header: string
+  header: string,
+  urlList: string[],
+  curid: number
 }
 
-class IndexPage extends React.Component<Props, State> {
+class Header extends React.Component<Props, State> {
   readonly state: Readonly<State> = {
     header: 'Mirai',
-    headerList: ['Mirai', 'ioa']
+    headerList: ['Mirai', 'blog'],
+    urlList: ['http://mirai.bubbleioa.top','http://blog.bubbleioa.top' ],
+    curid: 0
   }
   componentDidMount(): void {
     setTimeout(()=>this.deleteHeader(0),2000)
@@ -31,6 +35,9 @@ class IndexPage extends React.Component<Props, State> {
   }
   loopHeader(listID:number):void {
     if(listID<this.state.headerList.length) {
+      this.setState({
+        curid: listID
+      })
       let cid = 0
       const timer = setInterval(():void => {
         this.setState({
@@ -48,11 +55,21 @@ class IndexPage extends React.Component<Props, State> {
   }
   render(): React.ReactNode {
     return (
-      <main className="header">
-        <h1> {this.state.header} </h1>
-      </main>
+      <h1> <a href={this.state.urlList[this.state.curid]} className="text-colored">{this.state.header}.bubbleioa.top</a> </h1>
     )
   }
+}
+
+const IndexPage = ()=> {
+  
+  return(
+    <main>
+      <div className="header">
+        <Header ></Header>
+        <div className="info"> ioa !== iob </div>
+      </div>
+    </main>
+  )
 }
 
 export default IndexPage
