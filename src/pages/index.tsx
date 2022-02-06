@@ -1,6 +1,7 @@
 import * as React from "react"
 import "../css/index.css"
 import { Link } from "gatsby"
+import { Helmet } from "react-helmet"
 
 
 interface State {
@@ -59,7 +60,7 @@ class Header extends React.Component<any, State> {
 }
 
 const IndexPage = ()=> {
-  const queryParams = new URLSearchParams(window.location.search)
+  const queryParams = new URLSearchParams(typeof window !== "undefined" && window.location.search)
   const lang = queryParams.get("lang")
   let detail: JSX.Element = null
   if (lang === 'zh-CN') {
@@ -73,6 +74,10 @@ const IndexPage = ()=> {
   }
   return(
     <main>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>ioa's mirai?</title>
+      </Helmet>
       <div className="header">
         <Header ></Header>
         {detail}
