@@ -15,7 +15,7 @@ class Header extends React.Component<any, State> {
   readonly state: Readonly<State> = {
     header: 'Mirai',
     headerList: ['Mirai', 'blog'],
-    urlList: ['http://mirai.bubbleioa.top','http://blog.bubbleioa.top' ],
+    urlList: ['https://git.bubbleioa.top','https://blog.bubbleioa.top','https://netdata.bubbleioa.top','https://docker.bubbleioa.top' ],
     curid: 0
   }
   componentDidMount(): void {
