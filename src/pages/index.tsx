@@ -14,7 +14,7 @@ interface State {
 class Header extends React.Component<any, State> {
   readonly state: Readonly<State> = {
     header: 'Mirai',
-    headerList: ['Mirai', 'blog'],
+    headerList: ['git', 'blog', 'netdata', 'docker'],
     urlList: ['https://git.bubbleioa.top','https://blog.bubbleioa.top','https://netdata.bubbleioa.top','https://docker.bubbleioa.top' ],
     curid: 0
   }
@@ -65,11 +65,11 @@ const IndexPage = ()=> {
   let detail: JSX.Element = null
   if (lang === 'zh-CN') {
     detail = (
-      <div className="info"> 为什么是冒泡 {"<->"} 为什么是ioa 😕😕 天知道<br/> 🎉🐟🎉 ~&gt; 蒸汽平台 || 📚👧📚 ~&gt; 班固米 || 🐴🔫🐴 ~&gt; 坐牢模拟器 <br/> 🔑 公钥: 无 (只有当有人需要它，这里才会有) <br/> <Link to="/">English Version</Link></div>
+      <div className="info"> 为什么是冒泡 {"<->"} 为什么是ioa 😕😕 天知道<br/> 🎉🐟🎉 ~&gt; 蒸汽平台 || 📚👧📚 ~&gt; 班固米 || 🐴🔫🐴 ~&gt; 坐牢模拟器 <br/> 🔑 公钥:  <Link to="https://github.com/Bubbleioa.gpg">CA43 1898 305C BDC1 78EF  6C3C 1DA0 2D52 E707 8602</Link><br/> <Link to="/">English Version</Link></div>
     )
   } else {
     detail = (
-      <div className="info"> Why bubble {"<->"} why ioa 😕😕 GOD(s) know it<br/> 🎉🐟🎉 ~&gt; Steam || 📚👧📚 ~&gt; Bangumi || 🐴🔫🐴 ~&gt; Apex Legends <br/> 🔑 Public Key: None (Once someone needs it, here will be a key.) <br/> <Link to="/?lang=zh-CN">中文版</Link></div>
+      <div className="info"> Why bubble {"<->"} why ioa 😕😕 GOD(s) know it<br/> 🎉🐟🎉 ~&gt; Steam || 📚👧📚 ~&gt; Bangumi || 🐴🔫🐴 ~&gt; Apex Legends <br/> 🔑 Public Key:<Link to="https://github.com/Bubbleioa.gpg">CA43 1898 305C BDC1 78EF  6C3C 1DA0 2D52 E707 8602</Link> <br/> <Link to="/?lang=zh-CN">中文版</Link></div>
     )
   }
   return(
