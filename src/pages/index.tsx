@@ -69,7 +69,7 @@ const IndexPage = ()=> {
         为什么是冒泡 {"<->"} 为什么是ioa 😕😕 天知道
         <br/> 🎉🐟🎉 ~&gt; 蒸汽平台 || 📚👧📚 ~&gt; 班固米 || 🐴🔫🐴 ~&gt; 坐牢模拟器 <br/>
         🔑 公钥:  <Link to="https://github.com/Bubbleioa.gpg">CA43 1898 305C BDC1 78EF  6C3C 1DA0 2D52 E707 8602</Link>
-        <br/>生活就是一团💩，但是 arch 是👍！ 
+        <br/>生活就是一团💩，但是 arch 任然很👍！ 
         <br/> <Link to="/">English Version</Link>
       </div>
     )
@@ -88,6 +88,10 @@ const IndexPage = ()=> {
     <main>
       <Helmet>
         <meta charSet="utf-8" />
+        <meta property="og:title" content="ioa's mirai?" />
+        <meta property="og:type" content="profile" />
+        <meta property="og:url" content="https://bubbleioa.top/" />
+        <meta property="og:image" content="https://p.sda1.dev/6/0301b2a7c1e18516ab1f6230025e0e52/image.png" />
         <title>ioa's mirai?</title>
       </Helmet>
       <div className="header">
