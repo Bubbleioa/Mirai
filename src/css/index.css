@@ -35,5 +35,8 @@ body {
 }
 
 .blended-picture {
+  max-width: 100%;
+  width: auto;
+  height: auto;
   mix-blend-mode: exclusion;
 }

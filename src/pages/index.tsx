@@ -20,10 +20,13 @@ class Header extends React.Component<any, State> {
     headerList: ['git', 'blog', 'netdata', 'docker', 'code'],
     urlList: ['https://git.bubbleioa.top','https://blog.bubbleioa.top','https://netdata.bubbleioa.top','https://docker.bubbleioa.top','https://code.bubbleioa.top' ],
     curid: 0,
-    imgUrl: format('https://service-avb1tv8k-1303953543.hk.apigw.tencentcs.com/release/image?scale={0}&id=1',randomInRange(9e-9,1.5e-7))
+    imgUrl: ''
   }
   componentDidMount(): void {
     setTimeout(()=>this.deleteHeader(0),2000)
+    this.setState({
+      imgUrl: format('https://service-avb1tv8k-1303953543.hk.apigw.tencentcs.com/release/image?scale={0}&id=1',randomInRange(9e-9,1.5e-7))
+    })
   }
   deleteHeader(listID:number):void {
     const timer = setInterval((): void => {
