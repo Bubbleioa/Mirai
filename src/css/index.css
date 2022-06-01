@@ -33,3 +33,7 @@ body {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
+
+.blended-picture {
+  mix-blend-mode: exclusion;
+}

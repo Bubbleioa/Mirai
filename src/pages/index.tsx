@@ -2,21 +2,25 @@ import * as React from "react"
 import "../css/index.css"
 import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
-
+import { format } from 'react-string-format';
 
 interface State {
   headerList: string[],
   header: string,
   urlList: string[],
-  curid: number
+  curid: number,
+  imgUrl: string
 }
-
+function randomInRange(min:number, max:number):number {
+  return Math.random() < 0.5 ? ((1-Math.random()) * (max-min) + min) : (Math.random() * (max-min) + min);
+}
 class Header extends React.Component<any, State> {
   readonly state: Readonly<State> = {
     header: 'git',
     headerList: ['git', 'blog', 'netdata', 'docker', 'code'],
     urlList: ['https://git.bubbleioa.top','https://blog.bubbleioa.top','https://netdata.bubbleioa.top','https://docker.bubbleioa.top','https://code.bubbleioa.top' ],
-    curid: 0
+    curid: 0,
+    imgUrl: format('https://service-avb1tv8k-1303953543.hk.apigw.tencentcs.com/release/image?scale={0}&id=1',randomInRange(9e-9,1.5e-7))
   }
   componentDidMount(): void {
     setTimeout(()=>this.deleteHeader(0),2000)
@@ -54,7 +58,10 @@ class Header extends React.Component<any, State> {
   }
   render(): React.ReactNode {
     return (
+      <div>
+      <img src={this.state.imgUrl} className="blended-picture"></img>
       <h1> <a href={this.state.urlList[this.state.curid]} className="text-colored">{this.state.header}.bubbleioa.top</a> </h1>
+      </div>
     )
   }
 }
@@ -66,16 +73,18 @@ const IndexPage = ()=> {
   if (lang === 'zh-CN') {
     detail = (
       <div className="info">
+        你每次访问这个网站，上面的图片都是独一无二的<br/>
         为什么是冒泡 {"<->"} 为什么是ioa 😕😕 天知道
         <br/> 🎉🐟🎉 ~&gt; 蒸汽平台 || 📚👧📚 ~&gt; 班固米 || 🐴🔫🐴 ~&gt; 坐牢模拟器 <br/>
         🔑 公钥:  <Link to="https://github.com/Bubbleioa.gpg">CA43 1898 305C BDC1 78EF  6C3C 1DA0 2D52 E707 8602</Link>
-        <br/>生活就是一团💩，但是 arch 任然很👍！ 
+        <br/>生活就是一团💩，但是 arch 仍然很👍！ 
         <br/> <Link to="/">English Version</Link>
       </div>
     )
   } else {
     detail = (
       <div className="info"> 
+      Every time you visit this site, the images above are unique.<br/>
       Why bubble {"<->"} why ioa 😕😕 GOD(s) know it<br/>
       🎉🐟🎉 ~&gt; Steam || 📚👧📚 ~&gt; Bangumi || 🐴🔫🐴 ~&gt; Apex Legends <br/>
        🔑 Public Key:<Link to="https://github.com/Bubbleioa.gpg">CA43 1898 305C BDC1 78EF  6C3C 1DA0 2D52 E707 8602</Link> <br/>
