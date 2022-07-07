@@ -1,8 +1,11 @@
 import * as React from "react"
-import "../css/index.css"
+import "../static/css/index.css"
 import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
-import { format } from 'react-string-format';
+import { format } from 'react-string-format'
+import TransitionLink from "gatsby-plugin-transition-link"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+
 
 interface State {
   headerList: string[],
@@ -63,7 +66,7 @@ class Header extends React.Component<any, State> {
     return (
       <div>
       <img src={this.state.imgUrl} className="blended-picture"></img>
-      <h1> <a href={this.state.urlList[this.state.curid]} className="text-colored">{this.state.header}.bubbleioa.top</a> </h1>
+      <h1> <a href={this.state.urlList[this.state.curid]} className="text-colored">{this.state.header}//</a> </h1>
       </div>
     )
   }
@@ -72,14 +75,14 @@ class Header extends React.Component<any, State> {
 const IndexPage = ()=> {
   const queryParams = new URLSearchParams(typeof window !== "undefined" && window.location.search)
   const lang = queryParams.get("lang")
-  let detail: JSX.Element = null
+  let detail: JSX.Element;
   if (lang === 'zh-CN') {
     detail = (
       <div className="info">
         你每次访问这个网站，上面的图片都是独一无二的<br/>
         为什么是冒泡 {"<->"} 为什么是ioa 😕😕 天知道
         <br/> 🎉🐟🎉 ~&gt; 蒸汽平台 || 📚👧📚 ~&gt; 班固米 || 🐴🔫🐴 ~&gt; 坐牢模拟器 <br/>
-        🔑 公钥:  <Link to="https://github.com/Bubbleioa.gpg">CA43 1898 305C BDC1 78EF  6C3C 1DA0 2D52 E707 8602</Link>
+        🔑 公钥:  <a href="https://github.com/Bubbleioa.gpg">CA43 1898 305C BDC1 78EF  6C3C 1DA0 2D52 E707 8602</a>
         <br/>生活就是一团💩，但是 arch 仍然很👍！ 
         <br/> <Link to="/">English Version</Link>
       </div>
@@ -90,10 +93,11 @@ const IndexPage = ()=> {
       Every time you visit this site, the images above are unique.<br/>
       Why bubble {"<->"} why ioa 😕😕 GOD(s) know it<br/>
       🎉🐟🎉 ~&gt; Steam || 📚👧📚 ~&gt; Bangumi || 🐴🔫🐴 ~&gt; Apex Legends <br/>
-       🔑 Public Key:<Link to="https://github.com/Bubbleioa.gpg">CA43 1898 305C BDC1 78EF  6C3C 1DA0 2D52 E707 8602</Link> <br/>
+       🔑 Public Key:<a href="https://github.com/Bubbleioa.gpg">CA43 1898 305C BDC1 78EF  6C3C 1DA0 2D52 E707 8602</a> <br/>
         Life is 💩, but arch is still 👍! <br/>
         <Link to="/?lang=zh-CN">中文版</Link>
       </div>
+      
     )
   }
   return(
@@ -109,6 +113,7 @@ const IndexPage = ()=> {
       <div className="header">
         <Header ></Header>
         {detail}
+        <AniLink swipe duration={0.33} direction="up" to="awesome-guys">Awesome guys⬇️</AniLink>
       </div>
     </main>
   )

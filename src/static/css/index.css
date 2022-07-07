@@ -40,3 +40,12 @@ body {
   height: auto;
   mix-blend-mode: exclusion;
 }
+
+.swipe-down {
+  position: absolute;
+  bottom: 3%;
+}
+.test-block{
+  height: 5000px;
+  background-color: #14f1e6;
+}
