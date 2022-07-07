@@ -75,7 +75,7 @@ class Guys extends React.Component<any, State> {
       {
         name: "sparrow",
         link: "https://sparrow.sakuragaming.org/link/",
-        imgs: ["https://avatars.githubusercontent.com/u/32926102?v=4"]
+        imgs: ["https://avatars.githubusercontent.com/u/32926102?v=4","https://p.sda1.dev/6/f68a52bd13fc3c94292af0326e9d34c5/CharaIllust_Full_30022000.png","https://p.sda1.dev/6/cc06cf67214624687d96c7294d52ef88/P6`5LAEFPOKXRJ568C99_EO.jpg"]
       },
       {
         name: "Ajsoabk",
