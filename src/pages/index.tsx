@@ -113,7 +113,7 @@ const IndexPage = ()=> {
       <div className="header">
         <Header ></Header>
         {detail}
-        <AniLink swipe duration={0.33} direction="up" to="awesome-guys">Awesome guys⬇️</AniLink>
+        <AniLink swipe duration={1} direction="up" to="awesome-guys">Awesome guys⬇️</AniLink>
       </div>
     </main>
   )

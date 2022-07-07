@@ -120,7 +120,7 @@ class Guys extends React.Component<any, State> {
             <div>
               <h1>Awesome Guys</h1>
               <h2>
-                <AniLink swipe duration={0.33} direction="down" to="/">
+                <AniLink swipe duration={1} direction="down" to="/">
                   ⬆️
                 </AniLink>
               </h2>
