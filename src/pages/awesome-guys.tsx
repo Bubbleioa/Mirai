@@ -87,8 +87,8 @@ class Guys extends React.Component<any, State> {
       const w = section.querySelector(".wrapper");
       const [x, xEnd] =
         index % 2
-          ? ["100%", (w.scrollWidth - section.offsetWidth) * -1]
-          : [w.scrollWidth * -1, 300];
+          ? ["100%", section.offsetWidth*-0.5]
+          : [w.scrollWidth * -1, 200];
       gsap.fromTo(
         w,
         { x },
