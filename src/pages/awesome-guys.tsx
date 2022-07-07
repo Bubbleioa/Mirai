@@ -32,6 +32,13 @@ interface State {
     imgs: string[];
   }[];
 }
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
 class Guys extends React.Component<any, State> {
   readonly state: Readonly<State> = {
     guys: [
@@ -68,7 +75,7 @@ class Guys extends React.Component<any, State> {
       {
         name: "sparrow",
         link: "https://sparrow.sakuragaming.org/link/",
-        imgs: []
+        imgs: ["https://avatars.githubusercontent.com/u/32926102?v=4"]
       },
       {
         name: "Ajsoabk",
@@ -77,7 +84,9 @@ class Guys extends React.Component<any, State> {
       }
     ],
   };
+  
   componentDidMount(): void {
+    const { height, width } = getWindowDimensions();
     shuffle(this.state.guys)
     document.body.style.overflow = "auto";
     document.scrollingElement.scrollTo(0, 0);
@@ -87,8 +96,8 @@ class Guys extends React.Component<any, State> {
       const w = section.querySelector(".wrapper");
       const [x, xEnd] =
         index % 2
-          ? ["100%", section.offsetWidth*-0.5]
-          : [w.scrollWidth * -1, 200];
+          ? ["100%", section.offsetWidth*-0.5*width/1400]
+          : [w.scrollWidth * -1, 200*width/1400];
       gsap.fromTo(
         w,
         { x },
