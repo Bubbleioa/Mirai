@@ -4,6 +4,10 @@ div {
   display: block;
 }
 
+.header h2 {
+  display: inline-flex;
+}
+
 .header h1 {
   font-size: 6.5vw;
   margin: 1%;
@@ -35,7 +39,7 @@ body {
 }
 
 .blended-picture {
-  max-width: 100%;
+  max-width: 95%;
   width: auto;
   height: auto;
   mix-blend-mode: exclusion;

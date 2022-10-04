@@ -12,7 +12,10 @@ interface State {
   header: string,
   urlList: string[],
   curid: number,
-  imgUrl: string
+  imgUrl: string,
+  stateUrl: string,
+  lastSteps: number,
+  lastHeartRate: number,
 }
 function randomInRange(min:number, max:number):number {
   return Math.random() < 0.5 ? ((1-Math.random()) * (max-min) + min) : (Math.random() * (max-min) + min);
@@ -23,13 +26,36 @@ class Header extends React.Component<any, State> {
     headerList: ['git', 'blog', 'netdata', 'docker', 'code'],
     urlList: ['https://git.bubbleioa.top','https://blog.bubbleioa.top','https://netdata.bubbleioa.top','https://docker.bubbleioa.top','https://code.bubbleioa.top' ],
     curid: 0,
-    imgUrl: ''
+    imgUrl: '',
+    stateUrl: 'http://bubbleioa.top:9333/info',
+    lastSteps: 0,
+    lastHeartRate: 0,
   }
   componentDidMount(): void {
+    console.log(this.state)
     setTimeout(()=>this.deleteHeader(0),2000)
     this.setState({
       imgUrl: format('https://service-avb1tv8k-1303953543.hk.apigw.tencentcs.com/release/image?scale={0}&id=1',randomInRange(9e-9,1.5e-7))
     })
+    // update steps and heart_rate
+    fetch(this.state.stateUrl).then(res=>res.json()).then(data=>{
+      this.counterAnim('#steps', this.state.lastSteps, data['steps'], 1000)
+      this.counterAnim('#heart_rate', this.state.lastHeartRate, data['heart_rate'], 1000)
+      this.setState({
+        lastHeartRate: data['heart_rate'],
+        lastSteps: data['steps']
+      })
+    })
+    setInterval(()=>{
+      fetch(this.state.stateUrl).then(res=>res.json()).then(data=>{
+        this.counterAnim('#steps', this.state.lastSteps, data['steps'], 1000)
+        this.counterAnim('#heart_rate', this.state.lastHeartRate, data['heart_rate'], 1000)
+        this.setState({
+          lastHeartRate: data['heart_rate'],
+          lastSteps: data['steps']
+        })
+      })
+    }, 5000)
   }
   deleteHeader(listID:number):void {
     const timer = setInterval((): void => {
@@ -62,11 +88,29 @@ class Header extends React.Component<any, State> {
       this.loopHeader(0)
     }
   }
+  //#region - start of - number counter animation
+  counterAnim(qSelector, start = 0, end: number, duration = 1000):void {
+    const target = document.querySelector(qSelector)
+    let startTimestamp = 0
+    const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1)
+    target.innerText = (qSelector=="#steps"?"🦶 ":"❤️ ") + Math.floor(progress * (end - start) + start)
+    if (progress < 1) {
+      window.requestAnimationFrame(step)
+    }
+    }
+    window.requestAnimationFrame(step)
+  }
+
   render(): React.ReactNode {
     return (
       <div>
       <img src={this.state.imgUrl} className="blended-picture"></img>
       <h1> <a href={this.state.urlList[this.state.curid]} className="text-colored">{this.state.header}//</a> </h1>
+      <h2 className="text-colored" id="steps">0</h2>
+      <h2 className="text-colored">&nbsp;&nbsp;&nbsp;</h2>
+      <h2 className="text-colored" id="heart_rate">0</h2>
       </div>
     )
   }
@@ -76,6 +120,7 @@ const IndexPage = ()=> {
   const queryParams = new URLSearchParams(typeof window !== "undefined" && window.location.search)
   const lang = queryParams.get("lang")
   let detail: JSX.Element;
+  
   if (lang === 'zh-CN') {
     detail = (
       <div className="info">
