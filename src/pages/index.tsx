@@ -27,7 +27,7 @@ class Header extends React.Component<any, State> {
     urlList: ['https://git.bubbleioa.top','https://blog.bubbleioa.top','https://netdata.bubbleioa.top','https://docker.bubbleioa.top','https://code.bubbleioa.top' ],
     curid: 0,
     imgUrl: '',
-    stateUrl: 'http://bubbleioa.top:9333/info',
+    stateUrl: 'https://bubbleioa.top/my_state/info',
     lastSteps: 0,
     lastHeartRate: 0,
   }
