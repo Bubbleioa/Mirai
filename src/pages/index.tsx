@@ -159,6 +159,8 @@ const IndexPage = ()=> {
         <Header ></Header>
         {detail}
         <AniLink swipe duration={1} direction="up" to="awesome-guys">Awesome guys⬇️</AniLink>
+        <br/>
+        <p>赣ICP备2020013731号-2</p>
       </div>
     </main>
   )

@@ -4,6 +4,11 @@ div {
   display: block;
 }
 
+main {
+  padding: 10 10 10 10;
+  height: 100vh;
+}
+
 .header h2 {
   display: inline-flex;
 }
