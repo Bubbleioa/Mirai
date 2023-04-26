@@ -160,7 +160,7 @@ const IndexPage = ()=> {
         {detail}
         <AniLink swipe duration={1} direction="up" to="awesome-guys">Awesome guys⬇️</AniLink>
         <br/>
-        <p>赣ICP备2020013731号-2</p>
+        <a href="https://beian.miit.gov.cn/">赣ICP备2020013731号-2</a>
       </div>
     </main>
   )
