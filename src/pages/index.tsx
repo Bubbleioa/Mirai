@@ -107,9 +107,9 @@ class Header extends React.Component<any, State> {
       <div>
       <img src={this.state.imgUrl} className="blended-picture"></img>
       <h1> <a href={this.state.urlList[this.state.curid]} className="text-colored">{this.state.header}//</a> </h1>
-      <h2 className="text-colored" id="steps">🦶0</h2>
+      <h2 className="text-colored" id="steps">🦶?</h2>
       <h2 className="text-colored">&nbsp;&nbsp;&nbsp;</h2>
-      <h2 className="text-colored" id="heart_rate">❤️0</h2>
+      <h2 className="text-colored" id="heart_rate">❤️?</h2>
       </div>
     )
   }
