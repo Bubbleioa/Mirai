@@ -124,7 +124,7 @@ const IndexPage = ()=> {
     detail = (
       <div className="info">
         你每次访问这个网站，上面的图片都是独一无二的<br/>
-        为什么是冒泡 {"<->"} 为什么是ioa 😕😕 天知道
+        为什么是冒泡 {"<->"} 为什么是 ioa 😕😕 天知道
         <br/> 🎉🐟🎉 ~&gt; 蒸汽平台 || 📚👧📚 ~&gt; 班固米 || 🐴🔫🐴 ~&gt; 坐牢模拟器 <br/>
         🔑 公钥:  <a href="https://github.com/Bubbleioa.gpg">CA43 1898 305C BDC1 78EF  6C3C 1DA0 2D52 E707 8602</a>
         <br/>生活就是一团💩，但是 arch 仍然很👍！ 
