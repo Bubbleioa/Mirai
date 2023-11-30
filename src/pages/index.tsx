@@ -3,9 +3,7 @@ import "../static/css/index.css"
 import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
 import { format } from 'react-string-format'
-import TransitionLink from "gatsby-plugin-transition-link"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-
 
 interface State {
   headerList: string[],
