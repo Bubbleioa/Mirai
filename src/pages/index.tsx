@@ -150,7 +150,7 @@ const IndexPage = ()=> {
         <meta property="og:type" content="profile" />
         <meta property="og:url" content="https://bubbleioa.top/" />
         <meta property="og:image" content="https://p.sda1.dev/6/0301b2a7c1e18516ab1f6230025e0e52/image.png" />
-        <title>ioa 空间</title>
+        <title>ioa 的空间</title>
       </Helmet>
       <div className="header">
         <Header ></Header>
