@@ -56,7 +56,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ value, max }) => {
 
 const PowerConsumption: React.FC = () => {
   const [power, setPower] = useState<number>(0);
-  const maxPower = 1000; // 假设的最大功耗值
+  const maxPower = 350; // 假设的最大功耗值
 
   useEffect(() => {
     // 定义获取数据的函数
