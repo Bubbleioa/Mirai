@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
 import { format } from 'react-string-format'
 import AniLink from "gatsby-plugin-transition-link/AniLink"
+import PowerConsumption from '../components/ProgressBar';
 
 interface State {
   headerList: string[],
@@ -105,9 +106,8 @@ class Header extends React.Component<any, State> {
       <div>
       <img src={this.state.imgUrl} className="blended-picture"></img>
       <h1> <a href={this.state.urlList[this.state.curid]} className="text-colored">{this.state.header}//</a> </h1>
-      <h2 className="text-colored" id="steps">🦶?</h2>
-      <h2 className="text-colored">&nbsp;&nbsp;&nbsp;</h2>
-      <h2 className="text-colored" id="heart_rate">❤️?</h2>
+      <h3 className="text-colored">Power Consumption</h3>
+      <PowerConsumption />
       </div>
     )
   }
