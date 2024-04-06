@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
 import { format } from 'react-string-format'
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import PowerConsumption from '../components/ProgressBar';
+import HomeStatus from '../components/HomeStatus';
 
 interface State {
   headerList: string[],
@@ -36,24 +36,24 @@ class Header extends React.Component<any, State> {
       imgUrl: format('https://service-avb1tv8k-1303953543.hk.apigw.tencentcs.com/release/image?scale={0}&id=1',randomInRange(9e-9,1.5e-7))
     })
     // update steps and heart_rate
-    fetch(this.state.stateUrl).then(res=>res.json()).then(data=>{
-      this.counterAnim('#steps', this.state.lastSteps, data['steps'], 1000)
-      this.counterAnim('#heart_rate', this.state.lastHeartRate, data['heart_rate'], 1000)
-      this.setState({
-        lastHeartRate: data['heart_rate'],
-        lastSteps: data['steps']
-      })
-    })
-    setInterval(()=>{
-      fetch(this.state.stateUrl).then(res=>res.json()).then(data=>{
-        this.counterAnim('#steps', this.state.lastSteps, data['steps'], 1000)
-        this.counterAnim('#heart_rate', this.state.lastHeartRate, data['heart_rate'], 1000)
-        this.setState({
-          lastHeartRate: data['heart_rate'],
-          lastSteps: data['steps']
-        })
-      })
-    }, 5000)
+    // fetch(this.state.stateUrl).then(res=>res.json()).then(data=>{
+    //   this.counterAnim('#steps', this.state.lastSteps, data['steps'], 1000)
+    //   this.counterAnim('#heart_rate', this.state.lastHeartRate, data['heart_rate'], 1000)
+    //   this.setState({
+    //     lastHeartRate: data['heart_rate'],
+    //     lastSteps: data['steps']
+    //   })
+    // })
+    // setInterval(()=>{
+    //   fetch(this.state.stateUrl).then(res=>res.json()).then(data=>{
+    //     this.counterAnim('#steps', this.state.lastSteps, data['steps'], 1000)
+    //     this.counterAnim('#heart_rate', this.state.lastHeartRate, data['heart_rate'], 1000)
+    //     this.setState({
+    //       lastHeartRate: data['heart_rate'],
+    //       lastSteps: data['steps']
+    //     })
+    //   })
+    // }, 5000)
   }
   deleteHeader(listID:number):void {
     const timer = setInterval((): void => {
@@ -106,8 +106,7 @@ class Header extends React.Component<any, State> {
       <div>
       <img src={this.state.imgUrl} className="blended-picture"></img>
       <h1> <a href={this.state.urlList[this.state.curid]} className="text-colored">{this.state.header}//</a> </h1>
-      <h3 className="text-colored">Power Consumption</h3>
-      <PowerConsumption />
+      <HomeStatus />
       </div>
     )
   }
