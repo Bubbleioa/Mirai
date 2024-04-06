@@ -15,36 +15,21 @@ const ProgressBar: React.FC<ProgressBarProps & { otherValue?: number; title: str
   const otherPercentage = (otherValue / max) * 100;
   const totalPercentage = pcPercentage + otherPercentage; // 累计总百分比
 
-  // PC功耗进度条样式
-  const pcProgressBarStyle: React.CSSProperties = {
+  // 主进度条样式
+  const progressBarStyle: React.CSSProperties = {
     height: '100%',
-    width: `${pcPercentage}%`,
+    width: `${pcPercentage + otherPercentage}%`,
     background: 'linear-gradient(90deg, #14f1e6, #1f8ef5)',
-    borderRadius: '5px 0 0 5px', // 左侧圆角
-    position: 'absolute',
-    left: 0,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    paddingRight: '5px', // 文本右侧内边距
-    overflow: 'hidden', // 防止文本溢出
-    transition: 'width 0.5s ease-in-out', // 添加动画效果
+    borderRadius: '5px',
+    transition: 'width 0.4s ease-in-out',
+    position: 'absolute', // 使用绝对定位
   };
 
-  // 其他功耗进度条样式
+  // 其他进度条样式
   const otherProgressBarStyle: React.CSSProperties = {
-    height: '100%',
-    width: `${totalPercentage > 100 ? 100 - pcPercentage : otherPercentage}%`,
-    background: 'linear-gradient(90deg, #f5a623, #f76b1c)',
-    borderRadius: '0 5px 5px 0',
-    position: 'absolute',
-    left: `${pcPercentage}%`,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    paddingLeft: '5px', // 文本左侧内边距
-    overflow: 'hidden',
-    transition: 'width 0.5s ease-in-out', // 添加动画效果
+    ...progressBarStyle,
+    width: `${otherPercentage}%`,
+    background: 'linear-gradient(90deg, #f5a623, #f76b1c)', // 使用不同的颜色
   };
 
   // 进度条容器样式
@@ -54,7 +39,7 @@ const ProgressBar: React.FC<ProgressBarProps & { otherValue?: number; title: str
     backgroundColor: '#eee',
     borderRadius: '5px',
     margin: '20px auto',
-    position: 'relative',
+    position: 'relative', // 相对定位，作为进度条的容器
     overflow: 'hidden',
   };
 
@@ -79,10 +64,9 @@ const ProgressBar: React.FC<ProgressBarProps & { otherValue?: number; title: str
 
   return (
     <div>
-      <h2 className='text-colored' style={titleStyle}>{title}</h2>
       <div style={progressContainerStyle}>
         {/* PC功耗进度条 */}
-        <div style={pcProgressBarStyle}>
+        <div style={progressBarStyle}>
           <span style={progressTextStyle}>{`${value} w`}</span>
         </div>
         {/* 其他功耗进度条 */}
