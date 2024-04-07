@@ -35,7 +35,7 @@ const ProgressBar: React.FC<ProgressBarProps & { otherValue?: number; title: str
   // 进度条容器样式
   const progressContainerStyle: React.CSSProperties = {
     height: '30px',
-    maxWidth: '60%',
+    maxWidth: '70%',
     backgroundColor: '#eee',
     borderRadius: '5px',
     margin: '20px auto',
@@ -99,7 +99,7 @@ const SensorDisplayRow: React.FC<{ temperature: number; humidity: number }> = ({
     border: '1px solid #ddd',
     borderRadius: '5px',
     backgroundColor: '#f7f7f7',
-    maxWidth: '30%',
+    maxWidth: '40%',
     margin: '20px auto',
   };
 

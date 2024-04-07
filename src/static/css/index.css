@@ -44,7 +44,7 @@ body {
 }
 
 .blended-picture {
-  width: 20vw;
+  width: 35vh;
   height: auto;
   mix-blend-mode: exclusion;
 }
